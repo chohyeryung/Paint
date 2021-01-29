@@ -20,12 +20,12 @@ function startPainting(){
 function onMouseMove(event){
     const x=event.offsetX;
     const y=event.offsetY;
-    if(!painting){  
-        ctx.beginPath();
+    if(!painting){  //painting이 false일 때, mousedown이 아닐때
+        ctx.beginPath();    //path는 선
         ctx.moveTo(x,y);
-    }else{
+    }else{  //클릭하고(클릭하면 painting=true가 됨) 움직이면
         ctx.lineTo(x,y);
-        ctx.stroke()
+        ctx.stroke();
     }
 }
 
