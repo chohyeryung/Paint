@@ -73,7 +73,7 @@ function handleCM(event){
 }
 
 function handleSaveClick(){
-    const image=canvas.toDataURL("image/jpeg");
+    const image=canvas.toDataURL();
     const link=document.createElement("a");
     let fill_name=prompt("저장할 파일명을 입력해주세요 (확장자 제외)");
     link.href=image;
