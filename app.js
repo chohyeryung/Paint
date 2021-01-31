@@ -4,10 +4,11 @@ const colors=document.getElementsByClassName("jsColor");
 const range=document.getElementById("jsRange");
 const mode=document.getElementById("jsMode");
 
-const INITIAL_COLOR=""
+const INITIAL_COLOR="#2c2c2c";
+const CANVAS_SIZE=700;
 
-canvas.width=700;
-canvas.height=700;
+canvas.width=CANVAS_SIZE;
+canvas.height=CANVAS_SIZE;
 
 ctx.strokeStyle=INITIAL_COLOR;
 ctx.fillStyle=INITIAL_COLOR;
@@ -55,7 +56,12 @@ function handleModeClick(){
     }else{
         filling=true;
         mode.innerText="Paint";
-        ctx.fillStyle=ctx.strokeStyle;
+    }
+}
+
+function handleCanvasClick(){
+    if(filling==true){
+        ctx.fillRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
     }
 }
 
@@ -64,6 +70,7 @@ if(canvas){
     canvas.addEventListener("mousedown", startPainting);
     canvas.addEventListener("mouseup", stopPainting);
     canvas.addEventListener("mouseleave", stopPainting);
+    canvas.addEventListener("click", handleCanvasClick);
 }
 
 Array.from(colors).forEach(color => 
